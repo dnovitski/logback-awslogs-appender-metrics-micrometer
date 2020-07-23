@@ -1,0 +1,2 @@
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+ca.pjer.logback.metrics.micrometer.autoconfigure.AwsLogsMetricsAutoConfiguration
