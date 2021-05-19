@@ -5,9 +5,9 @@
 
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>ca.pjer</groupId>
+    <groupId>io.github.dnovitski</groupId>
     <artifactId>logback-awslogs-appender-metrics-micrometer</artifactId>
-    <version>1.0.0</version>
+    <version>1.0.1</version>
 
     <name>Logback AWSLogs appender metrics for micrometer</name>
     <description>Micrometer metrics for awlogs appender for Logback</description>
@@ -62,9 +62,9 @@
     <dependencyManagement>
         <dependencies>
             <dependency>
-                <groupId>ca.pjer</groupId>
+                <groupId>io.github.dnovitski</groupId>
                 <artifactId>logback-awslogs-appender</artifactId>
-                <version>1.3.0-p1</version>
+                <version>1.5.0</version>
             </dependency>
             <dependency>
                 <groupId>io.micrometer</groupId>
@@ -92,7 +92,7 @@
 
     <dependencies>
         <dependency>
-            <groupId>ca.pjer</groupId>
+            <groupId>io.github.dnovitski</groupId>
             <artifactId>logback-awslogs-appender</artifactId>
         </dependency>
         <dependency>

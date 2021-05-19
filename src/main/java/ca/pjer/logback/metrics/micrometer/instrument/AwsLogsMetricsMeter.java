@@ -1,12 +1,11 @@
 package ca.pjer.logback.metrics.micrometer.instrument;
 
-import ca.pjer.logback.AwsLogsAppender;
 import ca.pjer.logback.metrics.AwsLogsMetrics;
 import ca.pjer.logback.metrics.AwsLogsMetricsHolder;
-import com.amazonaws.services.logs.model.AWSLogsException;
 import io.micrometer.core.instrument.Counter;
 import io.micrometer.core.instrument.MeterRegistry;
 import io.micrometer.core.instrument.binder.MeterBinder;
+import software.amazon.awssdk.awscore.exception.AwsServiceException;
 
 public class AwsLogsMetricsMeter implements MeterBinder, AwsLogsMetrics {
     private Counter lostCounter;
@@ -88,9 +87,9 @@ public class AwsLogsMetricsMeter implements MeterBinder, AwsLogsMetrics {
 
     private String getExceptionType(Throwable throwable) {
         String exceptionType = throwable.getClass().getSimpleName();
-        if (throwable instanceof AWSLogsException) {
-            AWSLogsException awsLogsException = (AWSLogsException) throwable;
-            exceptionType = awsLogsException.getErrorCode();
+        if (throwable instanceof AwsServiceException) {
+            AwsServiceException awsLogsException = (AwsServiceException) throwable;
+            exceptionType = awsLogsException.awsErrorDetails().errorCode();
         }
         return exceptionType;
     }
