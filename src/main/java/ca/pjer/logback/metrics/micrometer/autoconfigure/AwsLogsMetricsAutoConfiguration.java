@@ -2,6 +2,7 @@ package ca.pjer.logback.metrics.micrometer.autoconfigure;
 
 import ca.pjer.logback.AwsLogsAppender;
 import ca.pjer.logback.metrics.AwsLogsMetrics;
+import ca.pjer.logback.metrics.AwsLogsMetricsHolder;
 import ca.pjer.logback.metrics.micrometer.instrument.AwsLogsMetricsMeter;
 import io.micrometer.core.instrument.MeterRegistry;
 import org.springframework.boot.autoconfigure.condition.*;
@@ -26,10 +27,10 @@ public class AwsLogsMetricsAutoConfiguration {
         @Override
         public ConditionOutcome getMatchOutcome(ConditionContext context, AnnotatedTypeMetadata metadata) {
             ConditionMessage.Builder message = ConditionMessage.forCondition("AwsLogsMetricsCondition");
-            if (AwsLogsAppender.isCreated()) {
-                return ConditionOutcome.match(message.because("AwsLogsAppender has been created"));
+            if (AwsLogsMetricsHolder.isDesired()) {
+                return ConditionOutcome.match(message.because("AwsLogsMetricsHolder indicated metrics are desired"));
             } else {
-                return ConditionOutcome.noMatch(message.because("AwsLogsAppender has not been created"));
+                return ConditionOutcome.noMatch(message.because("AwsLogsMetricsHolder did not indicate metrics desired"));
             }
         }
     }

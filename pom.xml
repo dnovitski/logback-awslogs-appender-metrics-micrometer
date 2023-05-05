@@ -7,7 +7,7 @@
 
     <groupId>io.github.dnovitski</groupId>
     <artifactId>logback-awslogs-appender-metrics-micrometer</artifactId>
-    <version>1.0.1</version>
+    <version>1.0.3</version>
 
     <name>Logback AWSLogs appender metrics for micrometer</name>
     <description>Micrometer metrics for awlogs appender for Logback</description>
@@ -64,7 +64,7 @@
             <dependency>
                 <groupId>io.github.dnovitski</groupId>
                 <artifactId>logback-awslogs-appender</artifactId>
-                <version>1.5.0</version>
+                <version>1.7.1</version>
             </dependency>
             <dependency>
                 <groupId>io.micrometer</groupId>
