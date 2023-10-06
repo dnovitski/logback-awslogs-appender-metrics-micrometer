@@ -7,7 +7,7 @@
 
     <groupId>io.github.dnovitski</groupId>
     <artifactId>logback-awslogs-appender-metrics-micrometer</artifactId>
-    <version>1.0.3</version>
+    <version>1.0.4</version>
 
     <name>Logback AWSLogs appender metrics for micrometer</name>
     <description>Micrometer metrics for awlogs appender for Logback</description>
@@ -186,6 +186,7 @@
                 <directory>src/main/resources</directory>
                 <includes>
                     <include>**/*.factories</include>
+                    <include>**/org.springframework.boot.autoconfigure.AutoConfiguration.imports</include>
                 </includes>
             </resource>
         </resources>
